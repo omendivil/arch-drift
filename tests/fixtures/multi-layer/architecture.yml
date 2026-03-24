@@ -1,0 +1,16 @@
+version: 1
+project:
+  name: multi-layer
+  src: src
+shared_layers: []
+exclude: []
+layers:
+  - name: components
+    paths: ["src/components/**"]
+    can_import: [shared]
+  - name: shared
+    paths: ["src/components/shared/**"]
+    can_import: []
+thresholds: {}
+banned: []
+rules: {}

@@ -1,0 +1,25 @@
+version: 1
+project:
+  name: violation-project
+  src: src
+shared_layers: [types]
+exclude: []
+layers:
+  - name: components
+    paths: ["src/components/**"]
+    can_import: [hooks]
+  - name: hooks
+    paths: ["src/hooks/**"]
+    can_import: [lib]
+  - name: lib
+    paths: ["src/lib/**"]
+    can_import: []
+  - name: types
+    paths: ["src/types/**"]
+    can_import: []
+thresholds:
+  max_file_lines: 500
+banned:
+  - pattern: "zustand"
+    why: "test ban"
+rules: {}

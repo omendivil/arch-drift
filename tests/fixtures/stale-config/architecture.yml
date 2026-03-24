@@ -1,0 +1,16 @@
+version: 1
+project:
+  name: stale-config
+  src: src
+shared_layers: []
+exclude: []
+layers:
+  - name: components
+    paths: ["src/components/**"]
+    can_import: []
+  - name: deleted-feature
+    paths: ["src/deleted-feature/**"]
+    can_import: []
+thresholds: {}
+banned: []
+rules: {}

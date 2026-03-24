@@ -1,0 +1,14 @@
+version: 1
+project:
+  name: big-file-project
+  src: src
+shared_layers: []
+exclude: []
+layers:
+  - name: lib
+    paths: ["src/lib/**"]
+    can_import: []
+thresholds:
+  max_file_lines: 500
+banned: []
+rules: {}

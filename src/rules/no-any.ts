@@ -1,16 +1,15 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import type { ScannedFile } from '../core/scanner.ts'
 import type { ArchDriftConfig } from '../core/config.ts'
 import type { Violation } from '../core/checker.ts'
 
-export function noAnyRule(file: ScannedFile, config: ArchDriftConfig): Violation[] {
+export function noAnyRule(file: ScannedFile, config: ArchDriftConfig, projectRoot: string): Violation[] {
   const severity = config.rules?.no_any
   if (!severity || severity === 'off') return []
 
   const violations: Violation[] = []
-  const content = require('fs').readFileSync(
-    require('path').join(process.cwd(), file.path),
-    'utf-8'
-  ) as string
+  const content = readFileSync(join(projectRoot, file.path), 'utf-8')
   const lines = content.split('\n')
 
   const patterns = [/:\s*any\b/, /\bas\s+any\b/, /<any>/]

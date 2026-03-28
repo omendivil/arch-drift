@@ -69,12 +69,14 @@ export default defineCommand({
     const files = await scanProject(projectRoot, config)
 
     // 4. Run all checks
+    // Only run checkThresholds if the max_file_lines rule is not active (avoids duplicates)
+    const fileSizeRuleActive = config.rules?.max_file_lines && config.rules.max_file_lines !== 'off'
     const allViolations: Violation[] = [
       ...selfViolations,
       ...checkBoundaries(files, config),
       ...checkBanned(files, config),
-      ...checkThresholds(files, config),
-      ...runRules(files, config),
+      ...(fileSizeRuleActive ? [] : checkThresholds(files, config)),
+      ...runRules(files, config, projectRoot),
     ]
 
     // 5. Output

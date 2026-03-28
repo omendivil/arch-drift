@@ -2,7 +2,7 @@ import type { ScannedFile } from '../core/scanner.ts'
 import type { ArchDriftConfig } from '../core/config.ts'
 import type { Violation } from '../core/checker.ts'
 
-export function fileSizeRule(file: ScannedFile, config: ArchDriftConfig): Violation[] {
+export function fileSizeRule(file: ScannedFile, config: ArchDriftConfig, _projectRoot: string): Violation[] {
   const severity = config.rules?.max_file_lines
   if (!severity || severity === 'off') return []
 

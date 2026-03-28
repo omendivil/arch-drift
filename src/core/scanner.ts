@@ -1,5 +1,6 @@
 import fg from 'fast-glob'
 import { readFile } from 'node:fs/promises'
+import { readFileSync } from 'node:fs'
 import { join, dirname, resolve, relative } from 'node:path'
 import type { ArchDriftConfig } from './config.ts'
 import { resolveFileLayer } from './resolver.ts'
@@ -98,7 +99,7 @@ export function loadTsconfigPaths(projectRoot: string): Record<string, string> {
   const aliases: Record<string, string> = {}
   try {
     const tsconfigPath = join(projectRoot, 'tsconfig.json')
-    const content = require('fs').readFileSync(tsconfigPath, 'utf-8')
+    const content = readFileSync(tsconfigPath, 'utf-8')
     // Strip comments from JSON (single-line // comments)
     const stripped = content.replace(/\/\/.*$/gm, '')
     const tsconfig = JSON.parse(stripped)

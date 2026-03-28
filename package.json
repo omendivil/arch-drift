@@ -1,10 +1,26 @@
 {
   "name": "arch-drift",
   "version": "0.1.0",
+  "description": "Prevent architecture drift. Define layer boundaries, detect violations, enforce on every commit.",
   "type": "module",
   "bin": {
     "arch-drift": "./dist/index.js"
   },
+  "keywords": [
+    "architecture",
+    "architecture-drift",
+    "enforce-boundaries",
+    "module-boundaries",
+    "code-boundaries",
+    "linter",
+    "cli",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omendivil/arch-drift.git"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "bun build src/index.ts --outdir dist --target bun",
     "dev": "bun run src/index.ts",

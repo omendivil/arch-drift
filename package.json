@@ -21,11 +21,17 @@
     "url": "https://github.com/omendivil/arch-drift.git"
   },
   "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "bun build src/index.ts --outdir dist --target bun",
     "dev": "bun run src/index.ts",
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun test && bun run build"
   },
   "dependencies": {
     "@clack/prompts": "^1.1.0",

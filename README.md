@@ -1,5 +1,8 @@
 # arch-drift
 
+![CI](https://github.com/omendivil/arch-drift/actions/workflows/ci.yml/badge.svg)
+![npm](https://img.shields.io/npm/v/arch-drift)
+
 Prevent architecture drift in your codebase. Define layer boundaries, detect violations, enforce on every commit.
 
 ## What it does
